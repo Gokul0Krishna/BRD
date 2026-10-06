@@ -2,4 +2,6 @@ time line(what we are going to develop and when)
 
 first I need to build a db.py to build a db and provide connections for actions on the db
 
+now that db is done I need to make the code to take the data from var/log
+
 
