@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bootdetective"
+dynamic = ["version"]
+description = "Finds boot-time regressions on Arch Linux and links them to pacman upgrades"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Your Name", email = "you@example.com" }]
+keywords = ["arch", "archlinux", "systemd", "boot", "pacman", "changepoint"]
+classifiers = [
+    "Environment :: Console",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: System :: Boot",
+]
+dependencies = ["numpy>=1.24"]
+
+[project.optional-dependencies]
+plot = ["matplotlib"]
+dev = ["pytest>=7", "ruff"]
+
+[project.scripts]
+bootdetective = "bootdetective.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Gokul0Krishna/bootdetective"
+Issues = "https://github.com/Gokul0Krishna/bootdetective/issues"
+
+[tool.setuptools.dynamic]
+version = { attr = "bootdetective.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
