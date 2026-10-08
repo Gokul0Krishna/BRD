@@ -1,0 +1,33 @@
+# Maintainer: Your Name <you@example.com>
+pkgname=bootdetective
+pkgver=0.1.0
+pkgrel=1
+pkgdesc='Detects boot-time regressions and links them to pacman package upgrades'
+arch=('any')
+url='https://github.com/YOURNAME/bootdetective'
+license=('MIT')
+depends=('python' 'python-numpy' 'systemd' 'pacman')
+optdepends=('python-matplotlib: "bootdetective plot" charts')
+makedepends=('python-build' 'python-installer' 'python-wheel' 'python-setuptools')
+checkdepends=('python-pytest')
+backup=('etc/bootdetective/config.toml')
+source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
+sha256sums=('SKIP')  # run `updpkgsums` once the v0.1.0 tag exists on GitHub
+
+build() {
+  cd "$pkgname-$pkgver"
+  python -m build --wheel --no-isolation
+}
+
+check() {
+  cd "$pkgname-$pkgver"
+  python -m pytest -q
+}
+
+package() {
+  cd "$pkgname-$pkgver"
+  python -m installer --destdir="$pkgdir" dist/*.whl
+  install -Dm644 packaging/bootdetective-collect.service -t "$pkgdir/usr/lib/systemd/system/"
+  install -Dm644 packaging/config.toml "$pkgdir/etc/bootdetective/config.toml"
+  install -Dm644 LICENSE -t "$pkgdir/usr/share/licenses/$pkgname/"
+}

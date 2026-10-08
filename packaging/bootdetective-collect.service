@@ -1,0 +1,31 @@
+[Unit]
+Description=Record boot timing for bootdetective
+Documentation=https://github.com/YOURNAME/bootdetective
+# Start only after the system is up, so we never sit in the boot critical path.
+After=multi-user.target
+
+[Service]
+# Type=simple, NOT oneshot, on purpose. The collector waits for boot to finish
+# (`systemctl is-system-running --wait`). A oneshot unit is itself a pending boot job, so
+# boot could never finish while it waited. A simple unit's start job completes immediately.
+Type=simple
+ExecStart=/usr/bin/bootdetective collect
+Nice=19
+IOSchedulingClass=idle
+# Creates /var/lib/bootdetective, world-readable so normal users can run `bootdetective report`.
+StateDirectory=bootdetective
+StateDirectoryMode=0755
+
+# Hardening: this needs no network and no write access outside its state directory.
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+RestrictAddressFamilies=AF_UNIX
+IPAddressDeny=any
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+LockPersonality=yes
+
+[Install]
+WantedBy=multi-user.target

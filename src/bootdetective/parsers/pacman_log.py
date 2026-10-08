@@ -1,3 +1,7 @@
+"""Parse /var/log/pacman.log.
+
+Pure functions only: text goes in, records come out. No file reads, no subprocesses.
+"""
 
 from __future__ import annotations
 
@@ -11,6 +15,7 @@ _LINE = re.compile(
     r"(?P<pkg>\S+) \((?P<ver>[^)]*)\)\s*$"
 )
 
+
 @dataclass(frozen=True)
 class PackageEvent:
     """One package change. Empty string means "not applicable" (e.g. no old version)."""
@@ -20,6 +25,7 @@ class PackageEvent:
     package: str
     old_version: str = ""
     new_version: str = ""
+
 
 def parse_timestamp(raw: str) -> int:
     """Parse pacman's two timestamp styles into unix seconds.

@@ -1,0 +1,14 @@
+[2026-09-10T08:12:01+0530] [PACMAN] Running 'pacman -Syu'
+[2026-09-10T08:12:01+0530] [PACMAN] synchronizing package lists
+[2026-09-10T08:12:05+0530] [ALPM] transaction started
+[2026-09-10T08:12:06+0530] [ALPM] upgraded linux-firmware (20260801-1 -> 20260901-1)
+[2026-09-10T08:12:07+0530] [ALPM] upgraded networkmanager (1.46.0-1 -> 1.48.0-1)
+[2026-09-10T08:12:08+0530] [ALPM-SCRIPTLET] ==> Building initramfs ...
+[2026-09-10T08:12:09+0530] [ALPM] installed htop (3.4.0-1)
+[2026-09-10T08:12:09+0530] [ALPM] removed oldtool (1.0-1)
+[2026-09-10T08:12:10+0530] [ALPM] reinstalled bash (5.2.37-1)
+[2026-09-10T08:12:10+0530] [ALPM] downgraded foo (2.0-1 -> 1.9-1)
+[2026-09-10T08:12:11+0530] [ALPM] warning: /etc/foo.conf installed as /etc/foo.conf.pacnew
+[2026-09-10T08:12:12+0530] [ALPM] transaction completed
+[2016-01-01 12:00] [PACMAN] Running 'pacman -S oldpkg'
+[2016-01-01 12:00] [ALPM] installed oldpkg (0.1-1)

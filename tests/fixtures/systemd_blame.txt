@@ -1,0 +1,4 @@
+5.123s NetworkManager-wait-online.service
+1min 3.2s slow-thing.service
+ 845ms plymouth-quit-wait.service
+  12ms systemd-journald.service

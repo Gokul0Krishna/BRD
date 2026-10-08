@@ -1,0 +1,5 @@
+{"MESSAGE":"Startup finished in 5.0s (firmware) + 2.0s (loader) + 3.0s (kernel) + 9.0s (userspace) = 19.0s.","_BOOT_ID":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","__REALTIME_TIMESTAMP":"1788000000000000","_PID":"1"}
+{"MESSAGE":"Startup finished in 87ms.","_BOOT_ID":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","__REALTIME_TIMESTAMP":"1788000100000000","_PID":"2345"}
+not json at all
+{"MESSAGE":"Startup finished in 3.0s (kernel) + 9.5s (userspace) = 12.5s.","_BOOT_ID":"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB","__REALTIME_TIMESTAMP":"1788086400000000","_PID":"1"}
+

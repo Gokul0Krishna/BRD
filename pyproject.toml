@@ -28,8 +28,8 @@ dev = ["pytest>=7", "ruff"]
 bootdetective = "bootdetective.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/Gokul0Krishna/bootdetective"
-Issues = "https://github.com/Gokul0Krishna/bootdetective/issues"
+Homepage = "https://github.com/YOURNAME/bootdetective"
+Issues = "https://github.com/YOURNAME/bootdetective/issues"
 
 [tool.setuptools.dynamic]
 version = { attr = "bootdetective.__version__" }

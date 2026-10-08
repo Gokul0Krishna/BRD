@@ -1,0 +1,17 @@
+# /etc/bootdetective/config.toml  (a per-user copy in ~/.config/bootdetective/ also works)
+# Every key is optional; the values below are the defaults.
+
+[database]
+path = "/var/lib/bootdetective/bootdetective.db"
+pacman_log = "/var/log/pacman.log"
+
+[detection]
+# "pelt" (default) or "cusum"
+method = "pelt"
+# A change must last at least this many boots to count.
+min_size = 5
+# Higher = fewer, more certain detections. Lower = more sensitive, more false alarms.
+penalty_factor = 4.0
+# Ignore changes smaller than BOTH of these (seconds, and fraction of the previous level).
+min_shift_s = 1.0
+min_shift_rel = 0.05
